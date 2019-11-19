@@ -30,7 +30,7 @@ class Auth extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    minLength: 6
+                    isSafePassword: true
                 },
                 valid: false,
                 touched: false
@@ -63,6 +63,12 @@ class Auth extends Component {
 
         if(rules.isEmail) {
             const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            isValid = pattern.test(value) && isValid;
+        }
+
+        // should contain at least one digit, one lower case, one upper case and minimum 6 characters
+        if(rules.isSafePassword) {
+            const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/;
             isValid = pattern.test(value) && isValid;
         }
 
