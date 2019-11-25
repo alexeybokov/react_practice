@@ -8,7 +8,7 @@ const input = ( props ) => {
 
     const inputClasses = [classes.InputElement];
 
-    if (props.invalid && props.shouldValidate  && props.touched) {
+    if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid);
     }
 
@@ -25,7 +25,6 @@ const input = ( props ) => {
                 {...props.elementConfig}
                 value={props.value}
                 onChange={props.changed}
-
             />;
             break;
         case ( 'textarea' ):
