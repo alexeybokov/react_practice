@@ -134,7 +134,7 @@ class Auth extends Component {
                 </form>
                 <Button
                     clicked={this.switchAuthModeHandler}
-                    btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SIGNUP'}</Button>
+                    btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGN IN' : 'SIGN UP'}</Button>
             </div>
         );
     }
@@ -145,6 +145,5 @@ const mapDispatchToProps = dispatch => {
         onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup))
     }
 };
-
 
 export default connect(null, mapDispatchToProps)(Auth);
